@@ -1,0 +1,44 @@
+﻿<Page x:Class="Boos.az_WPF.Views.CategoryView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Boos.az_WPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="180" d:DesignWidth="1000"
+      Title="CategoryView">
+
+    <Grid Background="#f9d54b">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30" ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ItemsControl ItemsSource="{Binding CategoryDbContext.Categories}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Foreground="Black" Text="{Binding Count}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Foreground="Black"  Text="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    </WrapPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+
+    </Grid>
+</Page>
