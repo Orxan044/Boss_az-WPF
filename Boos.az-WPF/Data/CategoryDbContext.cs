@@ -7,18 +7,18 @@ namespace Boos.az_WPF.Data;
 
 public class CategoryDbContext
 {
-    //static Dictionary<string, int> d1 = new Dictionary<string, int>
-    //    {
-    //        { "Kredit Mütəxəssisi", 0 },
-    //        { "Sigorta", 0 },
-    //        { "Audit", 0 },
-    //        { "Mühasibat", 0 },
-    //        { "Maliyyə analiz", 0 },
-    //        { "Bank xidməti", 0 },
-    //        { "Kassir", 0 },
-    //        { "İqtisadçı", 0 },
-    //        { "Digər", 0 }
-    //    };
+    static Dictionary<string, int> d1 = new Dictionary<string, int>
+        {
+            { "Kredit Mütəxəssisi", 0 },
+            { "Sigorta", 0 },
+            { "Audit", 0 },
+            { "Mühasibat", 0 },
+            { "Maliyyə analiz", 0 },
+            { "Bank xidməti", 0 },
+            { "Kassir", 0 },
+            { "İqtisadçı", 0 },
+            { "Digər", 0 }
+        };
 
     public ObservableCollection<Category>? Categories { get; set; }
 

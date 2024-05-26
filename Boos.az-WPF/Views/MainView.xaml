@@ -4,28 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Boos.az_WPF.Views"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        Title="Boss.Az" Height="750" Width="1000"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
+        Title="Boss.Az" Height="750" Width="1200"
         xmlns:material ="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="180" ></RowDefinition>
+            <RowDefinition Height="150" ></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
 
         <Grid Grid.Row="0" Background="#f8cb1c">
-            <Button Height="50" Content="boss.az" Background="Transparent" BorderBrush="Transparent" Margin="204,0,597,0" />
-            <Button Content="İş elanları" Background="Transparent" BorderBrush="Transparent" Margin="408,18,486,0" />
-            <Button Content="İş axtaranlar" Background="Transparent" BorderBrush="Transparent" Margin="531,18,341,0" />
-
+            <Button Height="50" Content="boss.az" Background="Transparent" BorderBrush="Transparent" Margin="204,0,709,0" Command="{Binding BossAzCommand}" />
+            <Button Content="İş elanları" Background="Transparent" BorderBrush="Transparent" Margin="459,18,561,0" Command="{Binding JopAnnouncementCommand}" />
+            <Button Content="İş axtaranlar" Background="Transparent" BorderBrush="Transparent" Margin="644,18,379,0" />
+            <Button Height="40" Background="White" BorderBrush="White" Content="Elan yerləşdirin" Margin="989,0,62,0" Command="{Binding AddAnnouncementCommand}" />
         </Grid>
-        <Frame Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden" Grid.Row="1"/>
+        <Frame Content="{Binding CurrentPage}" Background="#f9d54b" NavigationUIVisibility="Hidden" Grid.Row="1"/>
         <Grid Grid.Row="2" Background="#f8cb1c"></Grid>
 
-        <Frame Grid.Row="2" Background="#f4f4f4" ></Frame>
+        <Frame Content="{Binding CurrentPage2}" Height="534.04" Grid.Row="2" Background="#f4f4f4" NavigationUIVisibility="Hidden" ></Frame>
 
     </Grid>
 </Window>

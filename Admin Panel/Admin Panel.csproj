@@ -3,19 +3,20 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <RootNamespace>Boos.az_WPF</RootNamespace>
+    <RootNamespace>Admin_Panel</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Icon\" />
+    <Folder Include="Data\" />
+    <Folder Include="Icons\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
-    <PackageReference Include="SimpleInjector" Version="5.4.5" />
+    <PackageReference Include="SimpleInjector" Version="5.4.6" />
   </ItemGroup>
 
 </Project>

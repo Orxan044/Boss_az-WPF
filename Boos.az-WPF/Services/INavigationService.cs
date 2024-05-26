@@ -6,6 +6,6 @@ namespace UserPanel.Services.Navigation;
 
 public interface INavigationService
 {
-    void Navigate<TView, TViewModel>() where TView : Page where TViewModel : ViewModel;
+    void Navigate<TView, TViewModel>(Page CurrentPageSelect) where TView : Page where TViewModel : ViewModel;
 
 }

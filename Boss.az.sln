@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boos.az", "Boos.az-WPF\Boos.az.csproj", "{FC05B4A0-0D15-4053-91E8-F2BB0FA68154}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boos.az", "Boos.az-WPF\Boos.az.csproj", "{FC05B4A0-0D15-4053-91E8-F2BB0FA68154}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin Panel", "Admin Panel\Admin Panel.csproj", "{00369947-3CC7-4C5C-ACC6-B6336F5F383D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{FC05B4A0-0D15-4053-91E8-F2BB0FA68154}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC05B4A0-0D15-4053-91E8-F2BB0FA68154}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC05B4A0-0D15-4053-91E8-F2BB0FA68154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00369947-3CC7-4C5C-ACC6-B6336F5F383D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00369947-3CC7-4C5C-ACC6-B6336F5F383D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00369947-3CC7-4C5C-ACC6-B6336F5F383D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00369947-3CC7-4C5C-ACC6-B6336F5F383D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

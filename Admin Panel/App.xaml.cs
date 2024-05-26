@@ -1,12 +1,11 @@
-﻿using Boos.az_WPF.ViewModels;
-using Boos.az_WPF.Views;
-using System.Windows;
-using UserPanel.Services.Navigation;
+﻿using Admin_Panel.Services;
+using Admin_Panel.Views;
+using AdminPanel.ViewModels;
 using SimpleInjector;
-using Boos.az_WPF.Data;
-using System.Windows.Controls;
+using System.Windows;
 
-namespace Boos.az_WPF;
+namespace AdminPanel;
+
 
 
 public partial class App : Application
@@ -21,25 +20,17 @@ public partial class App : Application
 
     private void AddOtherServices()
     {
-        Container.RegisterSingleton<CategoryDbContext>();
-        Container.RegisterSingleton<JopAnnouncementDbContext>();
         Container.RegisterSingleton<INavigationService, NavigationService>();
     }
 
     private void AddViewModels()
     {
         Container.RegisterSingleton<MainViewModel>();
-        Container.RegisterSingleton<CategoryViewModel>();
-        Container.RegisterSingleton<AllViewModel>();
-        Container.RegisterSingleton<AddJopAnnouncementModel>();
     }
 
     private void AddViews()
     {
         Container.RegisterSingleton<MainView>();
-        Container.RegisterSingleton<CategoryView>();
-        Container.RegisterSingleton<AllView>();
-        Container.RegisterSingleton<AddJopAnnouncement>();
     }
 
     protected override void OnStartup(StartupEventArgs e)
