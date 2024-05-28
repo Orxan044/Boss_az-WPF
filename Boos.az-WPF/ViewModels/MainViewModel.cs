@@ -42,7 +42,7 @@ public class MainViewModel : ViewModel , INotifyPropertyChanged
     public AllViewModel AllViewModel { get; set; }
     private readonly INavigationService navigationService;
 
-    public MainViewModel(AllViewModel allView,INavigationService navigationService)
+    public MainViewModel(INavigationService navigationService)
     {
         BossAzCommand = new RelayCommand(BossAzClick);
         JopAnnouncementCommand = new RelayCommand(JopAnnouncementClick);
@@ -58,13 +58,12 @@ public class MainViewModel : ViewModel , INotifyPropertyChanged
         currentPage2.DataContext = App.Container.GetInstance<AllViewModel>();
         //-------------------------------------------------
 
-        AllViewModel = allView;
         this.navigationService = navigationService;
     }
 
     public void AddAnnouncementClick(object? obj)
     {
-        navigationService.Navigate<AddJopAnnouncement, AddJopAnnouncementModel>(CurrentPage2!);  
+        navigationService.Navigate<AddJopAnnouncement,AddJopAnnouncementModel>(CurrentPage2!);  
     }
 
     private void JopAnnouncementClick(object? obj)

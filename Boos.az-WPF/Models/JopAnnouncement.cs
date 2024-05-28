@@ -5,8 +5,8 @@ namespace Boos.az_WPF.Models;
 public class JopAnnouncement : Entity
 {
     public string? Mail {  get; set; }
-    public List<string>? PhoneNumbers { get; set; }
-    public Category? Category { get; set; }
+    public string? PhoneNumber { get; set; }
+    public Dictionary<string,string>? SelectedCategory { get; set; }
     public string? Position { get; set; }
     public string? City { get; set; }
     public int? SalaryMin { get; set; }
@@ -15,9 +15,9 @@ public class JopAnnouncement : Entity
     {
         get
         {
-            return $"{SalaryMin - SalaryMax} AZN";
+            return $"{SalaryMin} - {SalaryMax} AZN";
         }
-        set { SalaryRange = value!;  }
+        set { }
     }
     public int? AgeMin { get; set; }
     public int? AgeMax { get; set; }

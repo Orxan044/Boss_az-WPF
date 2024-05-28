@@ -28,7 +28,9 @@
                         <TextBlock Text="{Binding LatestAnnouncement}"
                                    Padding="10" FontSize="25" 
                                    Width="auto" ></TextBlock>
-                        <Button Padding="20 5 5 0" FontSize="15" Content="Hamısını göstərmək" Foreground="#a3a6ad" Background="Transparent" BorderBrush="Transparent" />
+                        <Button Padding="20 5 5 0" FontSize="15" Content="Hamısını göstərmək"
+                                Foreground="#a3a6ad" Background="Transparent" BorderBrush="Transparent"
+                                Command="{Binding NewAllSeeCommand}"/>
                     </WrapPanel>
                 </Grid>
 
@@ -59,7 +61,7 @@
                                         <Grid>
                                             <Button  Content="{Binding Position}"  Background="Transparent" BorderBrush="Transparent" 
                                                 VerticalAlignment="Top" FontSize="18" FontStyle="Normal"  FontWeight="Bold" Width="auto"
-                                                     Padding="0 0 0 0" Margin="0 0 0 0" 
+                                                     Padding="0 0 55 0" Margin="0 0 0 0" 
                                             />
                                             <Button Height="25" BorderBrush="#f8cb1c"  Content="{Binding SalaryRange}"
                                                        FontSize="14" Width="120" 
@@ -133,7 +135,7 @@
                                         <Grid>
                                             <Button  Content="{Binding Position}"  Background="Transparent" BorderBrush="Transparent" 
                                                 VerticalAlignment="Top" FontSize="18" FontStyle="Normal"  FontWeight="Bold" Width="auto"
-                                                     Padding="0 0 0 0" Margin="0 0 0 0" 
+                                                     Padding="0 55 0 0" Margin="0 0 0 0" 
                                             />
                                             <Button Height="25" BorderBrush="#f8cb1c"  Content="{Binding SalaryRange}"
                                                        FontSize="14" Width="120" 

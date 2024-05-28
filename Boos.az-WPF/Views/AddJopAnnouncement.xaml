@@ -5,11 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Boos.az_WPF.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="1550" d:DesignWidth="1200"
+      d:DesignHeight="1650" d:DesignWidth="1200"
       Title="AddJopAnnouncement">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto" >
-
         <Grid Background="#f4f4f4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="125*" />
@@ -42,53 +41,67 @@
                                    Margin="25 15"/>
                         <TextBlock Text="E-Mail" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 0"/>
-                        <TextBox FontSize="18"
+                        <TextBox FontSize="18" Text="{Binding JopAnnouncement.Mail}"
                             Margin="25 10"/>
 
                         <TextBlock Text="Telefon" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 10"/>
-                        <TextBox FontSize="18"
+                        <TextBox FontSize="18" Text="{Binding JopAnnouncement.PhoneNumber}"
                             Margin="25 0"/>
                     </StackPanel>
                 </Grid>
 
-                <Grid Background="White" Grid.Row="2" Height="1200" VerticalAlignment="Top" Margin="0,14,0,0" >
+                <Grid Background="White" Grid.Row="2" Height="1300" VerticalAlignment="Top" Margin="0,14,0,0" >
                     <StackPanel>
                         <TextBlock Text="ELAN" FontSize="28" FontWeight="Bold"
                                    Foreground="#ecb62e"
                                    Margin="25 15"/>
                         <TextBlock Text="Kateqoriya *" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 10"/>
-                        <ComboBox Height="40" Width="350" 
-                                  ItemsSource="{Binding CategoryDbContext.Categories.ToString}"/>
+                        
+                        <ComboBox Height="40" Width="350" FontSize="18"
+                                 ItemsSource="{Binding Categories}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedCategory}"/>
+                        
+                        <TextBlock Text="Kateqoriya Element *" FontSize="18" 
+                                   Foreground="#6a6a77" Margin="25 10"/>
+                        
+                        <ComboBox Height="40" Width="350" FontSize="18"
+                                  ItemsSource="{Binding Elements}" SelectedItem="{Binding SelectedElement}" IsEnabled="{Binding SelectedCategory}"/>
+                        
                         <TextBlock Text="Vəzifə *" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 25"/>
-                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -15 0 0" ></TextBox>
+                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -15 0 0"
+                                 Text="{Binding JopAnnouncement.Position}"></TextBox>
 
                         <TextBlock Text="Şəhər *" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 30"/>
-                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -15 0 0" ></TextBox>
+                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -15 0 0"
+                                 Text="{Binding JopAnnouncement.City}"></TextBox>
                         <WrapPanel>
                             <TextBlock Text="Maaş *" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 30"/>
                             <TextBlock Text="min" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 30"/>
-                            <TextBox Width="50" Height="30" FontSize="18" />
+                            <TextBox Width="50" Height="30" FontSize="18"
+                                     Text="{Binding JopAnnouncement.SalaryMin}"/>
                             
                             <TextBlock Text="max" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 30"/>
-                            <TextBox Width="50" Height="30" FontSize="18" ></TextBox>
+                            <TextBox Width="50" Height="30" FontSize="18"
+                                     Text="{Binding JopAnnouncement.SalaryMax}"></TextBox>
                         </WrapPanel>
                         <WrapPanel>
                             <TextBlock Text="Yaş *" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 30"/>
                             <TextBlock Text="min" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 30"/>
-                            <TextBox Width="50" Height="30" FontSize="18" />
+                            <TextBox Width="50" Height="30" FontSize="18"
+                                     Text="{Binding JopAnnouncement.AgeMin}"/>
 
                             <TextBlock Text="max" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 30"/>
-                            <TextBox Width="50" Height="30" FontSize="18" ></TextBox>
+                            <TextBox Width="50" Height="30" FontSize="18"
+                                     Text="{Binding JopAnnouncement.AgeMax}"></TextBox>
                         </WrapPanel>
                         <WrapPanel Height="40">
                             <TextBlock Text="Təhsil" FontSize="18" 
@@ -96,29 +109,38 @@
                             <TextBlock Text="İş təcrübəsi" FontSize="18" 
                                    Foreground="#6a6a77" Margin="170 15 0 0"/>
                         </WrapPanel>
-                        <WrapPanel Height="39">
-                            <ComboBox Width="180" Margin="25 0 0 0" ></ComboBox>
-                            <ComboBox Width="130" Margin="35 0 0 0" ></ComboBox>
+                        <WrapPanel Height="39" Margin="0 7">
+                            <ComboBox Width="180" Margin="25 0 0 0" FontSize="18"
+                                      ItemsSource="{Binding EducationOptions}"
+                                      SelectedItem="{Binding SelectedEducation, Mode=TwoWay}"></ComboBox>
+                            <ComboBox Width="130" Margin="35 0 0 0" FontSize="18"
+                                      ItemsSource="{Binding WorkExperiences}"
+                                      SelectedItem="{Binding SelectedWorkExperience, Mode=TwoWay}"></ComboBox>
                         </WrapPanel>
                         <TextBlock Text="Namizədə tələblər" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 0"/>
-                        <TextBox Width="350" Height="100" FontSize="18" Margin="10" AcceptsReturn="True" />
+                        <TextBox Width="350" Height="100" FontSize="18" Margin="10" AcceptsReturn="True"
+                                 Text="{Binding JopAnnouncement.CandidateRequirements}"/>
 
 
                         <TextBlock Text="İş barədə məlumat" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 20"/>
-                        <TextBox Width="350" Height="80" FontSize="18" Margin="0" AcceptsReturn="True"/>
+                        <TextBox Width="350" Height="80" FontSize="18" Margin="0" AcceptsReturn="True"
+                                 Text="{Binding JopAnnouncement.JobInformation}"/>
 
                         <TextBlock Text="Şirkətin adı *" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 25"/>
-                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -15 0 0" />
+                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -15 0 0"
+                                 Text="{Binding JopAnnouncement.CompanyName}"/>
 
                         <TextBlock Text="Əlaqədar şəxs *" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 25"/>
-                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -15 0 0" />
+                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -15 0 0" 
+                                 Text="{Binding JopAnnouncement.RelevantPersonName}"/>
 
                         <Button Background="#f8cb1c" BorderBrush="#f8cb1c" 
-                                Content="Yerləşdirin" Width="100" Margin="20"/>
+                                Content="Yerləşdirin" Width="100" Margin="20"
+                                Command="{Binding AddJopCommand}"/>
 
 
 

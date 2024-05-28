@@ -32,6 +32,8 @@ public partial class App : Application
         Container.RegisterSingleton<CategoryViewModel>();
         Container.RegisterSingleton<AllViewModel>();
         Container.RegisterSingleton<AddJopAnnouncementModel>();
+        Container.RegisterSingleton<TypeAllViewModel>();
+        Container.RegisterSingleton<SelectedAnnouncementViewModel>();
     }
 
     private void AddViews()
@@ -40,6 +42,8 @@ public partial class App : Application
         Container.RegisterSingleton<CategoryView>();
         Container.RegisterSingleton<AllView>();
         Container.RegisterSingleton<AddJopAnnouncement>();
+        Container.RegisterSingleton<TypeAllView>();
+        Container.RegisterSingleton<SelectedAnnouncementView>();
     }
 
     protected override void OnStartup(StartupEventArgs e)
