@@ -11,7 +11,7 @@ public class JopAnnouncementDbContext
 
     public ObservableCollection<JopAnnouncement>? JopAnnouncements { get; set; }
 
-    private string? fileName = "C:\\Users\\user\\source\\Repos\\Boss.az\\Boos.az-WPF\\JSON\\JopAnnouncement.json";
+    private string? fileName = "C:\\Users\\Husey_so01\\Source\\Repos\\Boss_az-WPF\\Boos.az-WPF\\JSON\\JopAnnouncement.json";
 
     public JopAnnouncementDbContext()
     {
@@ -23,6 +23,12 @@ public class JopAnnouncementDbContext
         else
             JopAnnouncements = new();
     }
+
+    public JopAnnouncement? GetJopAnnouncement(string JopAnnouncementId)
+    
+        => JopAnnouncements!.FirstOrDefault(p => p.Id.ToString() == JopAnnouncementId);
+    
+
 
 
     public void SaveChanges()

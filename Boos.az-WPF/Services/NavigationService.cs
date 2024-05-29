@@ -22,6 +22,11 @@ public class NavigationService : INavigationService
                 mainVm!.CurrentPage2 = App.Container.GetInstance<TView>();
                 mainVm.CurrentPage2.DataContext = App.Container.GetInstance<TViewModel>();
             }
+            else if (CurrentPageSelect != mainVm!.CurrentPage2)
+            {
+                mainVm!.CurrentPage2 = App.Container.GetInstance<TView>();
+                mainVm.CurrentPage2.DataContext = App.Container.GetInstance<TViewModel>();
+            }
         }
     }
 }

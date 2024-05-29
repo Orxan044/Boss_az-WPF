@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Boos.az_WPF.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="1200"
+      d:DesignHeight="{Binding WindowSize}" d:DesignWidth="1200"
       Title="TypeAllView">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
@@ -38,15 +38,15 @@
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <ListBox BorderBrush="Transparent"  ItemsSource="{Binding JopDbContext.JopAnnouncements}" >
+                    <ListView x:Name="ListBox" BorderBrush="Transparent"  ItemsSource="{Binding JopDbContext.JopAnnouncements}" SelectedItem="{Binding SelectedAnnouncement}" >
 
-                        <ListBox.ItemsPanel>
+                        <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel VerticalAlignment="Top" Orientation="Horizontal" Height="{Binding WindowSize}" Width="720"   />
                             </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel> 
-                        
-                        <ListBox.ItemTemplate>
+                        </ListView.ItemsPanel>
+
+                        <ListView.ItemTemplate>
 
                             <DataTemplate>
                                 <Border BorderBrush="White" Background="White" Margin="5" Width="315" Height="315">
@@ -64,9 +64,16 @@
                                                 Background="Transparent" BorderBrush="Transparent"
                                                 FontSize="12" Foreground="Gray" Padding="0 0 0 0"
                                                 Height="18" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                        <Button Height="25" BorderBrush="#f8cb1c"  Content="{Binding SalaryRange}" Grid.Row="2"
-                                                       FontSize="14" Width="120" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                                                       Padding="0 0 0 0" Background="#f8cb1c"/>
+                                        <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                                            <Button Height="25" BorderBrush="#f8cb1c"  Content="{Binding SalaryRange}" 
+                                                           FontSize="14" Width="120" 
+                                                           Padding="0 0 0 0" Background="#f8cb1c"/>
+                                            <Button Height="25" BorderBrush="Black"  Content="Ətraflı >"
+                                                    FontSize="14" Width="60"  Command="{Binding ElementName=ListBox, Path=DataContext.MoreClickCommand}"
+                                                    CommandParameter="{Binding Id}"
+                                                    Padding="0 0 0 0" Background="Transparent"/>
+                                        </WrapPanel>
+
 
                                         <TextBlock Grid.Row="3" Text="{Binding JobInformation}" FontSize="14" ></TextBlock>
                                         <WrapPanel Grid.Row="4" >
@@ -75,34 +82,8 @@
                                     </Grid>
                                 </Border>
                             </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-
-                    <!--<Border VerticalAlignment="Top" Background="White" Margin="5" Width="315" Height="315">
-                        <Grid Margin="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="40*"></RowDefinition>
-                                <RowDefinition Height="19*"></RowDefinition>
-                                <RowDefinition Height="39*"></RowDefinition>
-                                <RowDefinition Height="196*"></RowDefinition>
-                                <RowDefinition Height="21*"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Button Grid.Row="0" Background="Transparent" BorderBrush="Transparent"  Content="{Binding Position}" FontSize="28" HorizontalAlignment="Left" FontWeight="Bold"
-                                   Foreground="#ecb62f" Padding="0 0 0 0"/>
-                            <Button Content="{Binding CompanyName}" Grid.Row="1"
-                                                Background="Transparent" BorderBrush="Transparent"
-                                                FontSize="12" Foreground="Gray" Padding="0 0 0 0"
-                                                Height="18" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                            <Button Height="25" BorderBrush="#f8cb1c"  Content="{Binding SalaryRange}" Grid.Row="2"
-                                                       FontSize="14" Width="120" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                                                       Padding="0 0 0 0" Background="#f8cb1c"/>
-
-                            <TextBlock Grid.Row="3" Text="{Binding JobInformation}" FontSize="14" ></TextBlock>
-                            <WrapPanel Grid.Row="4" >
-                                <TextBlock Text="{Binding City}" Foreground="#bfbebe" ></TextBlock>
-                            </WrapPanel>
-                        </Grid>
-                    </Border>-->
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </Grid>
 
             </Grid>

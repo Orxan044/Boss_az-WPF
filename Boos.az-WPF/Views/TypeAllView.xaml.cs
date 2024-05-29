@@ -11,14 +11,4 @@ public partial class TypeAllView : Page
         InitializeComponent();
     }
 
-    private void ListBox_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-    {
-        if (DataContext is TypeAllViewModel viewModel)
-        {
-            if (viewModel.ItemDoubleClickCommand!.CanExecute(null))
-            {
-                viewModel.ItemDoubleClickCommand.Execute(null);
-            }
-        }
-    }
 }

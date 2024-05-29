@@ -5,19 +5,40 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Boos.az_WPF.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="1200"
+      d:DesignHeight="{Binding WindowSize}" d:DesignWidth="1200"
       Title="SelectedAnnouncementView">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="4*" ></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" >
 
-        <Grid Margin="10" Grid.Column="1" Background="White">
-            
-        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="4*" ></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="10" Grid.Column="1" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" ></RowDefinition>
+                    <RowDefinition Height="200" ></RowDefinition>
+                    <RowDefinition Height="{Binding GridSize}" ></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <StackPanel Margin="15" >
+                        <TextBlock
+                            FontSize="22" Text="{Binding SelectedAnnouncement.Position}" >
+                            
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="1" Background="#fffae9" >
+                    
+                </Grid>
+                
+            </Grid>
         
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </Page>
