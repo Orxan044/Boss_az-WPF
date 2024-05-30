@@ -6,7 +6,7 @@ public class JopAnnouncement : Entity
 {
     public string? Mail {  get; set; }
     public string? PhoneNumber { get; set; }
-    public Dictionary<string,string>? SelectedCategory { get; set; }
+    public Dictionary<string,string> SelectedCategory { get; set; }
     public string? Position { get; set; }
     public string? City { get; set; }
     public int? SalaryMin { get; set; }

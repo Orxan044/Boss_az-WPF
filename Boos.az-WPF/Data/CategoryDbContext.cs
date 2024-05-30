@@ -12,10 +12,10 @@ public class CategoryDbContext
     //    "Kredit Mütəxəssisi" , "Sigorta" , "Audit" , "Mühasibat" ,"Maliyyə analiz","Kassir","Digər"
     //};
 
-    //static public List<string> strings2 = new()
-    //{
-    //    "Marketinq menecment" , "İctimayətlə əlaqələr" , "Reklam" , "Kopiraytinq"
-    //};
+    static public List<string> strings2 = new()
+    {
+        "Sistem idarəetməsi" , "Məlumat bazasının idarə edilməsi və inkişafı" , " İT mütəxəssisi / məsləhətçi" , " Proqramlaşdırma" , "Digər"
+    };
 
     public ObservableCollection<Category>? Categories { get; set; }
 

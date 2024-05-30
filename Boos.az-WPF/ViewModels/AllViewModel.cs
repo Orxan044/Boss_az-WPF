@@ -62,9 +62,14 @@ public class AllViewModel : ViewModel , INotifyPropertyChanged
     private void NewAllSeeClick(object? obj)
     {
         MainViewModel mainViewModel = new(NavigationService);
-        TypeAllViewModel typeAllViewModel = new(JopAnnouncementDbContext, NavigationService);
-        typeAllViewModel.JopAnnouncements = JopAnnouncementDbContext.JopAnnouncements!;
+        JopAnnouncementDbContext.JopAnnouncementsSearch!.Clear();
+        foreach (var item in JopAnnouncementDbContext.JopAnnouncements!)
+        {
+            JopAnnouncementDbContext.JopAnnouncementsSearch!.Add(item);
+        }
         NavigationService.Navigate<TypeAllView, TypeAllViewModel>(mainViewModel.CurrentPage2!);
+        //ypeAllViewModel typeAllViewModel = new(JopAnnouncementDbContext, NavigationService,JopAnnouncementDbContext.JopAnnouncements!);
+        //typeAllViewModel.JopAnnouncements = JopAnnouncementDbContext.JopAnnouncements!;
     }
 
 

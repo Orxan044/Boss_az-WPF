@@ -87,7 +87,7 @@ public class SearchViewModel : ViewModel , INotifyPropertyChanged
         Elements = new ObservableCollection<string>();
         EducationOptions = new ObservableCollection<Education>((Education[])Enum.GetValues(typeof(Education)));
         WorkExperiences = new ObservableCollection<WorkExperience>((WorkExperience[])Enum.GetValues(typeof(WorkExperience)));
-        AzerbaijanCities = new ObservableCollection<string> { "Bakı", "Gəncə", "Sumqayıt", "Lənkəran", "Mingəçevir", "Masallı" };
+        AzerbaijanCities = new ObservableCollection<string> { "Vacib_deyil","Bakı", "Gəncə", "Sumqayıt", "Lənkəran", "Mingəçevir", "Masallı" };
         #endregion
         CategoryDbContext = categoryDbContext;
         JopDbContext = jopDbContext;
@@ -97,45 +97,42 @@ public class SearchViewModel : ViewModel , INotifyPropertyChanged
 
     private void SearchClick(object? obj)
     {
-        if (SelectedCity is not null || SelectedCategory is not null || SelectedEducation != Education.Vacib_deyil || SelectedWorkExperience is not WorkExperience.Vacib_deyil)
+        if (SelectedCity is not null || SelectedCategory is not null || SelectedElement is not null ||
+            SelectedEducation is not Education.Vacib_deyil ||
+            SelectedWorkExperience is not WorkExperience.Vacib_deyil)
         {
-            // Tüm kriterleri içeren bir IQueryable oluşturun
             var query = JopDbContext.JopAnnouncements!.AsQueryable();
 
-            // Şehir kriteri seçildiyse, bu kriteri filtreye ekleyin
-            if (SelectedCity is not null)
-            {
+            if (SelectedCity is not null && SelectedCity != "Vacib_deyil")
                 query = query.Where(j => j.City == SelectedCity);
-            }
 
-            // Diğer kriterler seçildiyse, bunları da filtreye ekleyin
-            if (SelectedCategory!.Name is not null)
-            {
-                query = query.Where(j => j.SelectedCategory!.ContainsKey(SelectedCategory.Name));
-            }
+            if (SelectedElement is not null)
+                query = query.Where(j => j.SelectedCategory!.ContainsValue(SelectedElement));
 
-            if (SelectedEducation is not Education.Vacib_deyil)
-            {
+            if (SelectedCategory is not null)           
+                query = query.Where(j => j.SelectedCategory!.ContainsKey(SelectedCategory.Name!));
+            
+
+            if (SelectedEducation is not Education.Vacib_deyil)            
                 query = query.Where(j => j.Education == SelectedEducation);
-            }
-
-            if (SelectedWorkExperience is not WorkExperience.Vacib_deyil)
-            {
+            
+            if (SelectedWorkExperience is not WorkExperience.Vacib_deyil)            
                 query = query.Where(j => j.WorkExperience == SelectedWorkExperience);
-            }
-
-            // Sonuçları alın
-            var sonuclar = new ObservableCollection<JopAnnouncement>(query.ToList());
+            
             MainViewModel mainView = new(NavigationService);
-            //TypeAllViewModel TypeAllViewModel = new(JopDbContext, NavigationService,sonuclar);
-            //ypeAllViewModel.JopAnnouncements = sonuclar;
-            NavigationService.Navigate<TypeAllView, TypeAllViewModel>(mainView.CurrentPage2!);
+            var returnList = new ObservableCollection<JopAnnouncement>(query.ToList());
+            if (returnList is not null)
+            {
+                JopDbContext.JopAnnouncementsSearch!.Clear();
+                foreach (var item in returnList)
+                    JopDbContext.JopAnnouncementsSearch!.Add(item);
+                
+                NavigationService.Navigate<TypeAllView, TypeAllViewModel>(mainView.CurrentPage2!);
+            }
         }
         else
         {
             MainViewModel mainView = new(NavigationService);
-            //TypeAllViewModel TypeAllViewModel = new(JopDbContext, NavigationService,);
-            //TypeAllViewModel.JopAnnouncements = null!;
             NavigationService.Navigate<TypeAllView, TypeAllViewModel>(mainView.CurrentPage2!);
         }
     }

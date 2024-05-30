@@ -5,6 +5,8 @@ using UserPanel.Services.Navigation;
 using SimpleInjector;
 using Boos.az_WPF.Data;
 using System.Windows.Controls;
+using System.Collections.ObjectModel;
+using Boos.az_WPF.Models;
 
 namespace Boos.az_WPF;
 

@@ -26,7 +26,8 @@ public class TypeAllViewModel : ViewModel , INotifyPropertyChanged
         NavigationService = navigationService;
         WindowSize = jopDbContext.JopAnnouncements!.Count * 300;
         MoreClickCommand = new RelayCommand(MoreClick);
-        JopAnnouncements = null;
+        JopAnnouncements = jopDbContext.JopAnnouncementsSearch;
+        
     }
 
     public void MoreClick(object? id)
