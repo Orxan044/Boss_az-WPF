@@ -5,6 +5,7 @@ using Boos.az_WPF.Models;
 using Boos.az_WPF.Views;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using UserPanel.Services.Navigation;
@@ -22,8 +23,10 @@ public class AllViewModel : ViewModel , INotifyPropertyChanged
     public string? LatestAnnouncementPeriumum { get => latestAnnouncementPeriumum; set { latestAnnouncementPeriumum = value!; OnPropertyChanged(); } }
 
     public JopAnnouncementDbContext JopAnnouncementDbContext { get; set; }
+    public JopAnnouncement JopAnnouncement{ get; set; }
 
     public RelayCommand NewAllSeeCommand { get; set; }
+    public RelayCommand GetAnnouncementCommand { get; set; }
 
     protected readonly INavigationService NavigationService;  
 
@@ -33,11 +36,34 @@ public class AllViewModel : ViewModel , INotifyPropertyChanged
         JopAnnouncementDbContext = jopAnnouncementDbContext;
         NavigationService = navigationService;
         NewAllSeeCommand = new RelayCommand(NewAllSeeClick);
+        GetAnnouncementCommand = new RelayCommand(GetGetAnnouncement);
+    }
+
+    private void GetGetAnnouncement(object? obj)
+    {
+        var selectedAnnouncement = obj as JopAnnouncement;
+        if (selectedAnnouncement is not null)
+        {
+            
+            MainViewModel mainViewModel = new(NavigationService);
+            NavigationService.Navigate<SelectedAnnouncementView, SelectedAnnouncementViewModel>(mainViewModel.CurrentPage2!);
+            var MainVm = App.Current.MainWindow.DataContext as MainViewModel;
+            if (MainVm is not null)
+            {
+                var NewVm = MainVm.CurrentPage2!.DataContext as SelectedAnnouncementViewModel;
+                NewVm!.SelectedAnnouncement = selectedAnnouncement;
+            }
+
+        }
+
+        
     }
 
     private void NewAllSeeClick(object? obj)
     {
         MainViewModel mainViewModel = new(NavigationService);
+        TypeAllViewModel typeAllViewModel = new(JopAnnouncementDbContext, NavigationService);
+        typeAllViewModel.JopAnnouncements = JopAnnouncementDbContext.JopAnnouncements!;
         NavigationService.Navigate<TypeAllView, TypeAllViewModel>(mainViewModel.CurrentPage2!);
     }
 

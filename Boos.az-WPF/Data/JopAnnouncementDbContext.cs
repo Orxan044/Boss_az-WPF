@@ -10,8 +10,9 @@ public class JopAnnouncementDbContext
 {
 
     public ObservableCollection<JopAnnouncement>? JopAnnouncements { get; set; }
+    public ObservableCollection<JopAnnouncement>? JopAnnouncementsPerimum { get; set; }
 
-    private string? fileName = "C:\\Users\\Husey_so01\\Source\\Repos\\Boss_az-WPF\\Boos.az-WPF\\JSON\\JopAnnouncement.json";
+    private string? fileName = "C:\\Users\\user\\source\\Repos\\Boss.az\\Boos.az-WPF\\JSON\\JopAnnouncement.json";
 
     public JopAnnouncementDbContext()
     {
@@ -24,15 +25,22 @@ public class JopAnnouncementDbContext
             JopAnnouncements = new();
     }
 
-    public JopAnnouncement? GetJopAnnouncement(string JopAnnouncementId)
-    
-        => JopAnnouncements!.FirstOrDefault(p => p.Id.ToString() == JopAnnouncementId);
+    public JopAnnouncement? GetJopAnnouncement(string JopAnnouncementId) =>
+        JopAnnouncements!.FirstOrDefault(p => p.Id.ToString() == JopAnnouncementId);
     
 
 
 
     public void SaveChanges()
     {
+        foreach (var item in JopAnnouncements!)
+        {
+            if (item.AnnouncementType == AnnouncementType.PREMİUM)
+            {
+                JopAnnouncement Check = JopAnnouncementsPerimum!.FirstOrDefault(p => p == item)!;
+                if (Check is null) JopAnnouncementsPerimum!.Add(item);
+            }        
+        }
         var JopAnnouncementJson = JsonSerializer.Serialize(JopAnnouncements);
         File.WriteAllText(fileName!, JopAnnouncementJson);
     }

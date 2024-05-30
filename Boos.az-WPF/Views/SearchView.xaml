@@ -1,0 +1,95 @@
+﻿<Page x:Class="Boos.az_WPF.Views.SearchView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Boos.az_WPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="180" d:DesignWidth="1200"
+      Title="SearchView">
+
+    <Grid Background="#f9d54b">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="172.5*"></ColumnDefinition>
+            <ColumnDefinition Width="288*"></ColumnDefinition>
+            <ColumnDefinition Width="288*"></ColumnDefinition>
+            <ColumnDefinition Width="288*"></ColumnDefinition>
+            <ColumnDefinition Width="172.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" >
+            <TextBlock 
+                Text="Kategoriya" FontSize="14" FontWeight="Bold"
+                Foreground="Black" Margin="0 10">
+            </TextBlock>
+
+            <ComboBox 
+                Margin="0 -6 0 0"  Height="35" Width="250" FontSize="13" HorizontalAlignment="Left" FontWeight="Bold"
+                ItemsSource="{Binding Categories}" DisplayMemberPath="Name" 
+                SelectedItem="{Binding SelectedCategory}">
+            </ComboBox>
+
+            <TextBlock 
+                Text="Kategoriya Elements " FontSize="14" FontWeight="Bold"
+                Foreground="Black" Margin="0 10">
+            </TextBlock>
+
+            <ComboBox 
+                Margin="0 -6 0 0"  Height="35" Width="250" FontSize="13" HorizontalAlignment="Left" FontWeight="Bold"
+                ItemsSource="{Binding Elements}" 
+                SelectedItem="{Binding SelectedElement}">
+            </ComboBox>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" >
+            <TextBlock 
+                Text="Təhsil" FontSize="14" FontWeight="Bold"
+                Foreground="Black" Margin="0 10">
+            </TextBlock>
+
+            <ComboBox 
+                Margin="0 -6 0 0"  Height="35" Width="250" FontSize="13" HorizontalAlignment="Left" FontWeight="Bold"
+                ItemsSource="{Binding EducationOptions}"
+                SelectedItem="{Binding SelectedEducation, Mode=TwoWay}">
+            </ComboBox>
+
+            <TextBlock 
+                Text="Şəhər" FontSize="14" FontWeight="Bold"
+                Foreground="Black" Margin="0 10">
+            </TextBlock>
+
+            <ComboBox 
+                Margin="0 -6 0 0"  Height="35" Width="250" FontSize="13" HorizontalAlignment="Left" FontWeight="Bold"
+                ItemsSource="{Binding AzerbaijanCities}" 
+                SelectedItem="{Binding SelectedCity}">
+            </ComboBox>
+
+            <Button Background="White" Content="Axtar" BorderBrush="White" Width="70" Height="25" Margin="15" Command="{Binding SearchCommand}" ></Button>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" >
+            <TextBlock 
+                Text="İş təcrübəsi" FontSize="14" FontWeight="Bold"
+                Foreground="Black" Margin="0 10">
+            </TextBlock>
+
+            <ComboBox 
+                Margin="0 -6 0 0"  Height="35" Width="250" FontSize="13" HorizontalAlignment="Left" FontWeight="Bold"
+                ItemsSource="{Binding WorkExperiences}" 
+                SelectedItem="{Binding SelectedWorkExperience}">
+            </ComboBox>
+
+            <TextBlock 
+                Text="Açar sözləri" FontSize="14" FontWeight="Bold"
+                Foreground="Black" Margin="0 10">
+            </TextBlock>
+
+            <TextBox 
+                Height="25" Width="250" FontSize="13" HorizontalAlignment="Left" FontWeight="Bold">
+            </TextBox>
+
+        </StackPanel>
+    </Grid>
+</Page>

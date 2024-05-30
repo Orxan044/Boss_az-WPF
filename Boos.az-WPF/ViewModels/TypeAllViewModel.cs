@@ -2,23 +2,31 @@
 using Boos.az_WPF.Data;
 using Boos.az_WPF.Models;
 using Boos.az_WPF.Views;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using UserPanel.Services.Navigation;
 
 namespace Boos.az_WPF.ViewModels;
 
-public class TypeAllViewModel : ViewModel
+public class TypeAllViewModel : ViewModel , INotifyPropertyChanged
 {
 
     public double WindowSize { get; set; }
-    public JopAnnouncementDbContext JopDbContext { get; set; }  
+    public JopAnnouncementDbContext JopDbContext { get; set; }
+    public ObservableCollection<JopAnnouncement>? JopAnnouncements { get => jopAnnouncements; set { jopAnnouncements = value; OnPropertyChanged(); } }
+
     protected readonly INavigationService NavigationService;
+    private ObservableCollection<JopAnnouncement>? jopAnnouncements;
+
     public RelayCommand? MoreClickCommand { get; set; }
     public TypeAllViewModel(JopAnnouncementDbContext jopDbContext,INavigationService navigationService)
     {
         JopDbContext = jopDbContext;
         NavigationService = navigationService;
-        WindowSize = jopDbContext.JopAnnouncements!.Count * 201;
+        WindowSize = jopDbContext.JopAnnouncements!.Count * 300;
         MoreClickCommand = new RelayCommand(MoreClick);
+        JopAnnouncements = null;
     }
 
     public void MoreClick(object? id)
@@ -39,4 +47,10 @@ public class TypeAllViewModel : ViewModel
             }
         }
     }
+
+    //-------------------------------------------------------------
+    public event PropertyChangedEventHandler? PropertyChanged;
+    protected void OnPropertyChanged([CallerMemberName] string? paramName = null)
+        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(paramName));
+    //-------------------------------------------------------------
 }

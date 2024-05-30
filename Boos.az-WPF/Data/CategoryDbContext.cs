@@ -19,7 +19,7 @@ public class CategoryDbContext
 
     public ObservableCollection<Category>? Categories { get; set; }
 
-    private string? fileName = "C:\\Users\\Husey_so01\\Source\\Repos\\Boss_az-WPF\\Boos.az-WPF\\JSON\\Category.json";
+    private string? fileName = "C:\\Users\\user\\source\\Repos\\Boss.az\\Boos.az-WPF\\JSON\\Category.json";
 
     public CategoryDbContext()
     {

@@ -21,14 +21,24 @@ public class JopAnnouncement : Entity
     }
     public int? AgeMin { get; set; }
     public int? AgeMax { get; set; }
+    public string? AgeRange
+    {
+        get
+        {
+            return $"{AgeMin} - {AgeMax} yaş";
+        }
+        set { }
+    }
     public Education? Education { get; set; }
     public WorkExperience? WorkExperience { get; set; }
     public string? CandidateRequirements { get; set; }
     public string? JobInformation { get; set; }
     public string? CompanyName { get; set; }
     public string? RelevantPersonName { get; set; }
-    public DateTime? StartAnnouncementTime { get; set; } = DateTime.Now;
-    public DateTime? EndAnnouncementTime { get; set; } = DateTime.Now.AddMonths(1);
+    public string? StartAnnouncementTime { get => $"{DateTime.Now.ToString("MMMM")} {DateTime.Now.Day} , {DateTime.Now.Year}"; set { } }
+
+    private DateTime DateTimeData = DateTime.Now.AddMonths(1);
+    public string? EndAnnouncementTime { get => $"{DateTimeData.ToString("MMMM")} {DateTimeData.Day} , {DateTimeData.Year}"; set { } }
     public AnnouncementType? AnnouncementType { get; set; } = Enum_Data.AnnouncementType.New;
 
 }

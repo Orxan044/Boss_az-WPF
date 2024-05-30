@@ -17,7 +17,7 @@ public class SelectedAnnouncementViewModel : ViewModel , INotifyPropertyChanged
     {
         TypeAllViewModel = typeAllViewModel;
         WindowSize = 850;
-        GridSize = WindowSize - 400;
+        GridSize = WindowSize - 270;
     }
 
 

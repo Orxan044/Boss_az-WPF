@@ -23,7 +23,7 @@ public class AddJopAnnouncementModel : ViewModel , INotifyPropertyChanged
     public ObservableCollection<WorkExperience> WorkExperiences { get; }
     public Category SelectedCategory
     {
-        get { return _selectedCategory; }
+        get { return _selectedCategory!; }
         set
         {
             if (_selectedCategory != value)
@@ -107,6 +107,7 @@ public class AddJopAnnouncementModel : ViewModel , INotifyPropertyChanged
         //---------- Add -------------------------
         JopDbContext.JopAnnouncements!.Add(JopAnnouncement);
         JopDbContext.SaveChanges();
+        JopAnnouncement = new();
         
     }
 

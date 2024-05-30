@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Boos.az_WPF.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="150" d:DesignWidth="1200"
+      d:DesignHeight="180" d:DesignWidth="1200"
       Title="CategoryView">
 
     <Grid >
@@ -27,12 +27,18 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
-                        <TextBlock Foreground="Black" Text="{Binding Count}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <Button Content="{Binding Name}" Foreground="Black" Background="Transparent" BorderBrush="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <!--<TextBlock Foreground="Black" Text="{Binding Count}" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                        <Button Content="{Binding Name}" Foreground="#626952" FontWeight="Bold" Background="Transparent" BorderBrush="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </WrapPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+        <Button Content="Axtarış" Grid.Column="2" 
+                Foreground="Black" FontWeight="Bold" 
+                Background="Transparent" BorderBrush="Transparent"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                Command="{Binding SearchCommand}">
+        </Button>
 
 
 

@@ -38,7 +38,7 @@
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <ListView x:Name="ListBox" BorderBrush="Transparent"  ItemsSource="{Binding JopDbContext.JopAnnouncements}" SelectedItem="{Binding SelectedAnnouncement}" >
+                    <ListView x:Name="ListBox" BorderBrush="Transparent"  ItemsSource="{Binding JopAnnouncements}" SelectedItem="{Binding SelectedAnnouncement}" >
 
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
