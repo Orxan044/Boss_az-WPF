@@ -29,7 +29,7 @@
                                        Width="auto" ></TextBlock>
                     <Button Background="#f8cb1c" BorderBrush="#f8cb1c"
                             Content="CV yerləşdirin"
-                            Width="120" Height="30"
+                            Width="120" Height="30" Command="{Binding CvAddCommand}"
                             Margin="42 25 0 0"/>
                 </WrapPanel>
 

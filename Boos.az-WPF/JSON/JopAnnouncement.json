@@ -1,1 +1,25 @@
-[{"Mail":"info@bluetv.az","PhoneNumber":"(051) 596-46-07","SelectedCategory":{"Maliyy\u0259":"Dig\u0259r"},"Position":"\u0130nkassator","City":"Bak\u0131","SalaryMin":500,"SalaryMax":600,"SalaryRange":"500 - 600 AZN","AgeMin":25,"AgeMax":35,"AgeRange":"25 - 35 ya\u015F","Education":5,"WorkExperience":1,"CandidateRequirements":"- \u00DCnsiyy\u0259t qabiliyy\u0259ti\r\n- S\u0259lis dan\u0131\u015F\u0131q qabiliyy\u0259ti\r\n- \u0130nsanlarla i\u015Fl\u0259m\u0259 bacar\u0131\u011F\u0131\r\n- T\u0259zyiq alt\u0131nda i\u015Fl\u0259m\u0259 bacar\u0131\u011F\u0131\r\n- 25-35 ya\u015F aras\u0131 b\u0259y namiz\u0259dl\u0259r t\u0259l\u0259b olunur\r\n\r\nCV-l\u0259rinizi info@bluetv.az \u00FCnvan\u0131na \u0022\u0130nkassator\u0022 ba\u015Fl\u0131q\u0131 il\u0259 g\u00F6nd\u0259r\u0259 bil\u0259rsiz","JobInformation":"- \u0130\u015F qrafiki: h\u0259ft\u0259nin 6 i\u015F g\u00FCn\u00FC saat 12:00-dan - 20:00-d\u0259k\r\n- V\u0259zif\u0259 \u00F6hd\u0259likl\u0259ri: Bak\u0131 v\u0259 X\u0131rdalan \u015F\u0259h\u0259rl\u0259rind\u0259 yerl\u0259\u015F\u0259n binalarda abonentl\u0259rd\u0259n ayl\u0131q abon\u0259 haqq\u0131n\u0131n birba\u015Fa m\u0259nzild\u0259n toplanmas\u0131\r\n- G\u00FCn sonu hesabat t\u0259qdim edilm\u0259si\r\n- Veril\u0259n tap\u015F\u0131r\u0131qlar\u0131n vaxt\u0131nda icra edilm\u0259si\r\n- AR \u018Fm\u0259k M\u0259c\u0259ll\u0259sin\u0259 uy\u011Fun s\u0259n\u0259dl\u0259\u015Fm\u0259\r\n- \u018Fm\u0259k haqq\u0131: 500-600azn","CompanyName":"Port Castle MMC","RelevantPersonName":"Orxan","StartAnnouncementTime":"May 29 , 2024","EndAnnouncementTime":"June 29 , 2024","AnnouncementType":0,"Id":"0d84691b-3c97-4805-ac74-15b10c045035"}]
+[
+  {
+    "Mail": "info@bluetv.az",
+    "PhoneNumber": "(051) 596-46-07",
+    "SelectedCategory": { "Maliyy\u0259": "Dig\u0259r" },
+    "Position": "\u0130nkassator",
+    "City": "Bak\u0131",
+    "SalaryMin": 500,
+    "SalaryMax": 600,
+    "SalaryRange": "500 - 600 AZN",
+    "AgeMin": 25,
+    "AgeMax": 35,
+    "AgeRange": "25 - 35 ya\u015F",
+    "Education": 5,
+    "WorkExperience": 1,
+    "CandidateRequirements": "- \u00DCnsiyy\u0259t qabiliyy\u0259ti\r\n- S\u0259lis dan\u0131\u015F\u0131q qabiliyy\u0259ti\r\n- \u0130nsanlarla i\u015Fl\u0259m\u0259 bacar\u0131\u011F\u0131\r\n- T\u0259zyiq alt\u0131nda i\u015Fl\u0259m\u0259 bacar\u0131\u011F\u0131\r\n- 25-35 ya\u015F aras\u0131 b\u0259y namiz\u0259dl\u0259r t\u0259l\u0259b olunur\r\n\r\nCV-l\u0259rinizi info@bluetv.az \u00FCnvan\u0131na \u0022\u0130nkassator\u0022 ba\u015Fl\u0131q\u0131 il\u0259 g\u00F6nd\u0259r\u0259 bil\u0259rsiz",
+    "JobInformation": "- \u0130\u015F qrafiki: h\u0259ft\u0259nin 6 i\u015F g\u00FCn\u00FC saat 12:00-dan - 20:00-d\u0259k\r\n- V\u0259zif\u0259 \u00F6hd\u0259likl\u0259ri: Bak\u0131 v\u0259 X\u0131rdalan \u015F\u0259h\u0259rl\u0259rind\u0259 yerl\u0259\u015F\u0259n binalarda abonentl\u0259rd\u0259n ayl\u0131q abon\u0259 haqq\u0131n\u0131n birba\u015Fa m\u0259nzild\u0259n toplanmas\u0131\r\n- G\u00FCn sonu hesabat t\u0259qdim edilm\u0259si\r\n- Veril\u0259n tap\u015F\u0131r\u0131qlar\u0131n vaxt\u0131nda icra edilm\u0259si\r\n- AR \u018Fm\u0259k M\u0259c\u0259ll\u0259sin\u0259 uy\u011Fun s\u0259n\u0259dl\u0259\u015Fm\u0259\r\n- \u018Fm\u0259k haqq\u0131: 500-600azn",
+    "CompanyName": "Port Castle MMC",
+    "RelevantPersonName": "Orxan",
+    "StartAnnouncementTime": "May 29 , 2024",
+    "EndAnnouncementTime": "June 29 , 2024",
+    "AnnouncementType": 0,
+    "Id": "0d84691b-3c97-4805-ac74-15b10c045035"
+  }
+]

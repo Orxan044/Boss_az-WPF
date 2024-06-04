@@ -18,17 +18,23 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ItemsControl Grid.Column="1"  ItemsSource="{Binding CategoryDbContext.Categories}">
+        <ItemsControl Grid.Column="1"   ItemsSource="{Binding CategoryDbContext.Categories}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
+            
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
-                        <!--<TextBlock Foreground="Black" Text="{Binding Count}" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
-                        <Button Content="{Binding Name}" Foreground="#626952" FontWeight="Bold" Background="Transparent" BorderBrush="Transparent"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Button Content="{Binding Name}" 
+                                Foreground="#626952" FontWeight="Bold" Background="Transparent"
+                                BorderBrush="Transparent"  HorizontalAlignment="Center" 
+                                VerticalAlignment="Center"
+                                Command="{Binding CategoryCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                 
+                        ></Button> 
                     </WrapPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

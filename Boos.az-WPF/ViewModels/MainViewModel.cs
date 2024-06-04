@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 using UserPanel.Services.Navigation;
 
 namespace Boos.az_WPF.ViewModels;
@@ -21,8 +22,32 @@ public class MainViewModel : ViewModel , INotifyPropertyChanged
     public RelayCommand BossAzCommand {  get; set; }
     public RelayCommand JopAnnouncementCommand { get; set; }
     public RelayCommand AddAnnouncementCommand { get; set; }
+    public RelayCommand CvAnnouncementCommand { get; set; }
     #endregion
 
+    public static bool Check { get; set; }
+
+    private Brush _buttonBackgroundJop;
+    public Brush ButtonBackgroundJop
+    {
+        get { return _buttonBackgroundJop; }
+        set
+        {
+            _buttonBackgroundJop = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private Brush _buttonBackgroundCv;
+    public Brush ButtonBackgroundCv
+    {
+        get { return _buttonBackgroundCv; }
+        set
+        {
+            _buttonBackgroundCv = value;
+            OnPropertyChanged();
+        }
+    }
 
     private Page currentPage;
     private Page currentPage2;
@@ -47,6 +72,9 @@ public class MainViewModel : ViewModel , INotifyPropertyChanged
         BossAzCommand = new RelayCommand(BossAzClick);
         JopAnnouncementCommand = new RelayCommand(JopAnnouncementClick);
         AddAnnouncementCommand = new RelayCommand(AddAnnouncementClick);
+        CvAnnouncementCommand = new RelayCommand(CvAnnouncementClick);
+        ButtonBackgroundJop = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f9d54b"));
+        ButtonBackgroundCv = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00FFFFFF"));
 
         //-------------------------------------------------
         currentPage = App.Container.GetInstance<CategoryView>();
@@ -61,15 +89,27 @@ public class MainViewModel : ViewModel , INotifyPropertyChanged
         this.navigationService = navigationService;
     }
 
-    public void AddAnnouncementClick(object? obj)
+    private void CvAnnouncementClick(object? obj)
     {
-        navigationService.Navigate<AddJopAnnouncement,AddJopAnnouncementModel>(CurrentPage2!);  
+        navigationService.Navigate<CategoryView, CategoryViewModel>(CurrentPage!);
+        navigationService.Navigate<AllCvView, AllCvViewModel>(CurrentPage2!);
+        Check = true;
+        ButtonBackgroundCv = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f9d54b")); 
+        ButtonBackgroundJop = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00FFFFFF")); 
     }
+
 
     private void JopAnnouncementClick(object? obj)
     {
-        AllViewModel.LatestAnnouncement = "SON İŞ ELANLARI";
-        AllViewModel.LatestAnnouncementPeriumum = "PREMİUM İŞ ELANLARI";
+        navigationService.Navigate<CategoryView,CategoryViewModel>(CurrentPage!);
+        navigationService.Navigate<AllView,AllViewModel>(CurrentPage2!);
+        Check = false;
+        ButtonBackgroundJop = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f9d54b"));
+        ButtonBackgroundCv= new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00FFFFFF"));
+    }
+    public void AddAnnouncementClick(object? obj)
+    {
+        navigationService.Navigate<AddJopAnnouncement,AddJopAnnouncementModel>(CurrentPage2!);  
     }
 
     private void BossAzClick(object? obj)

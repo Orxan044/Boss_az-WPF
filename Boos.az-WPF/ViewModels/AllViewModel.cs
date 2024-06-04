@@ -1,26 +1,15 @@
 ﻿using Boos.az_WPF.Command;
 using Boos.az_WPF.Data;
-using Boos.az_WPF.Enum_Data;
 using Boos.az_WPF.Models;
 using Boos.az_WPF.Views;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
-using System.Windows;
 using UserPanel.Services.Navigation;
 
 namespace Boos.az_WPF.ViewModels;
 
 public class AllViewModel : ViewModel , INotifyPropertyChanged
 {
-    private string? latestAnnouncement = "SON İŞ ELANLARI";
-
-    public string? LatestAnnouncement { get => latestAnnouncement; set { latestAnnouncement = value!; OnPropertyChanged(); } }
-
-    private string? latestAnnouncementPeriumum = "PREMİUM İŞ ELANLARI";
-
-    public string? LatestAnnouncementPeriumum { get => latestAnnouncementPeriumum; set { latestAnnouncementPeriumum = value!; OnPropertyChanged(); } }
 
     public JopAnnouncementDbContext JopAnnouncementDbContext { get; set; }
     public JopAnnouncement JopAnnouncement{ get; set; }
@@ -30,16 +19,15 @@ public class AllViewModel : ViewModel , INotifyPropertyChanged
 
     protected readonly INavigationService NavigationService;  
 
-    //public ObservableCollection<string> JopAnnouncementNew9 { get; set; };
     public AllViewModel(JopAnnouncementDbContext jopAnnouncementDbContext,INavigationService navigationService)
     {
         JopAnnouncementDbContext = jopAnnouncementDbContext;
         NavigationService = navigationService;
         NewAllSeeCommand = new RelayCommand(NewAllSeeClick);
-        GetAnnouncementCommand = new RelayCommand(GetGetAnnouncement);
+        GetAnnouncementCommand = new RelayCommand(GetAnnouncement);
     }
 
-    private void GetGetAnnouncement(object? obj)
+    private void GetAnnouncement(object? obj)
     {
         var selectedAnnouncement = obj as JopAnnouncement;
         if (selectedAnnouncement is not null)
@@ -55,8 +43,6 @@ public class AllViewModel : ViewModel , INotifyPropertyChanged
             }
 
         }
-
-        
     }
 
     private void NewAllSeeClick(object? obj)

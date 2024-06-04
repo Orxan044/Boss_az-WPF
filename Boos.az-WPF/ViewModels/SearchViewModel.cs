@@ -77,10 +77,11 @@ public class SearchViewModel : ViewModel , INotifyPropertyChanged
 
     public CategoryDbContext CategoryDbContext { get; set; }
     public JopAnnouncementDbContext JopDbContext{ get; set; }
+    public CvAnnouncementDbContext CvDbContext{ get; set; }
 
     public RelayCommand SearchCommand { get; set; }
     protected readonly INavigationService NavigationService;
-    public SearchViewModel(CategoryDbContext categoryDbContext,JopAnnouncementDbContext jopDbContext,INavigationService navigationService)
+    public SearchViewModel(CategoryDbContext categoryDbContext,JopAnnouncementDbContext jopDbContext,INavigationService navigationService, CvAnnouncementDbContext cvDbContext)
     {
         #region Because of Combobox
         Categories = categoryDbContext.Categories!;
@@ -91,6 +92,7 @@ public class SearchViewModel : ViewModel , INotifyPropertyChanged
         #endregion
         CategoryDbContext = categoryDbContext;
         JopDbContext = jopDbContext;
+        CvDbContext = cvDbContext;
         NavigationService = navigationService;
         SearchCommand = new RelayCommand(SearchClick);
     }
@@ -101,33 +103,69 @@ public class SearchViewModel : ViewModel , INotifyPropertyChanged
             SelectedEducation is not Education.Vacib_deyil ||
             SelectedWorkExperience is not WorkExperience.Vacib_deyil)
         {
-            var query = JopDbContext.JopAnnouncements!.AsQueryable();
-
-            if (SelectedCity is not null && SelectedCity != "Vacib_deyil")
-                query = query.Where(j => j.City == SelectedCity);
-
-            if (SelectedElement is not null)
-                query = query.Where(j => j.SelectedCategory!.ContainsValue(SelectedElement));
-
-            if (SelectedCategory is not null)           
-                query = query.Where(j => j.SelectedCategory!.ContainsKey(SelectedCategory.Name!));
             
-
-            if (SelectedEducation is not Education.Vacib_deyil)            
-                query = query.Where(j => j.Education == SelectedEducation);
-            
-            if (SelectedWorkExperience is not WorkExperience.Vacib_deyil)            
-                query = query.Where(j => j.WorkExperience == SelectedWorkExperience);
-            
-            MainViewModel mainView = new(NavigationService);
-            var returnList = new ObservableCollection<JopAnnouncement>(query.ToList());
-            if (returnList is not null)
+            if (MainViewModel.Check == false)
             {
-                JopDbContext.JopAnnouncementsSearch!.Clear();
-                foreach (var item in returnList)
-                    JopDbContext.JopAnnouncementsSearch!.Add(item);
-                
-                NavigationService.Navigate<TypeAllView, TypeAllViewModel>(mainView.CurrentPage2!);
+                var query = JopDbContext.JopAnnouncements!.AsQueryable();
+
+
+                if (SelectedCity is not null && SelectedCity != "Vacib_deyil")
+                    query = query.Where(j => j.City == SelectedCity);
+
+                if (SelectedElement is not null)
+                    query = query.Where(j => j.SelectedCategory!.ContainsValue(SelectedElement));
+
+                if (SelectedCategory is not null)
+                    query = query.Where(j => j.SelectedCategory!.ContainsKey(SelectedCategory.Name!));
+
+
+                if (SelectedEducation is not Education.Vacib_deyil)
+                    query = query.Where(j => j.Education == SelectedEducation);
+
+                if (SelectedWorkExperience is not WorkExperience.Vacib_deyil)
+                    query = query.Where(j => j.WorkExperience == SelectedWorkExperience);
+
+                MainViewModel mainView = new(NavigationService);
+                var returnList = new ObservableCollection<JopAnnouncement>(query.ToList());
+                if (returnList is not null)
+                {
+                    JopDbContext.JopAnnouncementsSearch!.Clear();
+                    foreach (var item in returnList)
+                        JopDbContext.JopAnnouncementsSearch!.Add(item);
+                    NavigationService.Navigate<TypeAllView, TypeAllViewModel>(mainView.CurrentPage2!);
+                }
+            }
+
+            if (MainViewModel.Check == true)
+            {
+                var query = CvDbContext.CvAnnouncements!.AsQueryable();
+
+
+                if (SelectedCity is not null && SelectedCity != "Vacib_deyil")
+                    query = query.Where(j => j.City == SelectedCity);
+
+                if (SelectedElement is not null)
+                    query = query.Where(j => j.SelectedCategory!.ContainsValue(SelectedElement));
+
+                if (SelectedCategory is not null)
+                    query = query.Where(j => j.SelectedCategory!.ContainsKey(SelectedCategory.Name!));
+
+
+                if (SelectedEducation is not Education.Vacib_deyil)
+                    query = query.Where(j => j.Education == SelectedEducation);
+
+                if (SelectedWorkExperience is not WorkExperience.Vacib_deyil)
+                    query = query.Where(j => j.WorkExperience == SelectedWorkExperience);
+
+                MainViewModel mainView = new(NavigationService);
+                var returnList = new ObservableCollection<CvAnnouncement>(query.ToList());
+                if (returnList is not null)
+                {
+                    CvDbContext.CvAnnouncementsSearch!.Clear();
+                    foreach (var item in returnList)
+                        CvDbContext.CvAnnouncementsSearch!.Add(item);
+                    NavigationService.Navigate<CvTypeAllView, TypeCvAllViewModel>(mainView.CurrentPage2!);
+                }
             }
         }
         else

@@ -17,9 +17,20 @@
 
 
         <Grid Grid.Row="0" Background="#f8cb1c">
-            <Button Height="50" Content="boss.az" Background="Transparent" BorderBrush="Transparent" Margin="204,0,709,0" Command="{Binding BossAzCommand}" />
-            <Button Content="İş elanları" Background="Transparent" BorderBrush="Transparent" Margin="459,18,561,0" Command="{Binding JopAnnouncementCommand}" />
-            <Button Content="İş axtaranlar" Background="Transparent" BorderBrush="Transparent" Margin="644,18,379,0" />
+            <Button Height="50" FontSize="40" Padding="0 0 0 0" Width="200"
+                    Content="boss.az" FontFamily="Noto Sans Japanese"
+                    Background="Transparent" BorderBrush="Transparent" 
+                    FontWeight="Bold" 
+                    Margin="248,0,752,0" 
+                    Command="{Binding BossAzCommand}" />
+            <Button Content="İş elanları" 
+                    Background="{Binding ButtonBackgroundJop}" BorderBrush="{Binding ButtonBackgroundJop}" Padding="0 5 0 0" Height="40"
+                    Margin="502,10,586,0"
+                    Command="{Binding JopAnnouncementCommand}" />
+            <Button Content="İş axtaranlar" 
+                    Background="{Binding ButtonBackgroundCv}" BorderBrush="{Binding ButtonBackgroundCv}" Padding="0 5 0 0" Height="40"
+                    Margin="619,10,469,0" 
+                    Command="{Binding CvAnnouncementCommand}" />
             <Button Height="40" Background="White" BorderBrush="White" Content="Elan yerləşdirin" Margin="989,0,62,0" Command="{Binding AddAnnouncementCommand}" />
         </Grid>
         <Frame Content="{Binding CurrentPage}" Background="#f9d54b" NavigationUIVisibility="Hidden" Grid.Row="1"/>

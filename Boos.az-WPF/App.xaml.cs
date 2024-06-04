@@ -25,6 +25,7 @@ public partial class App : Application
     {
         Container.RegisterSingleton<CategoryDbContext>();
         Container.RegisterSingleton<JopAnnouncementDbContext>();
+        Container.RegisterSingleton<CvAnnouncementDbContext>();
         Container.RegisterSingleton<INavigationService, NavigationService>();
     }
 
@@ -36,7 +37,11 @@ public partial class App : Application
         Container.RegisterSingleton<AddJopAnnouncementModel>();
         Container.RegisterSingleton<TypeAllViewModel>();
         Container.RegisterSingleton<SelectedAnnouncementViewModel>();
-        Container.RegisterSingleton<SearchView>();
+        Container.RegisterSingleton<SearchViewModel>();
+        Container.RegisterSingleton<AllCvViewModel>();
+        Container.RegisterSingleton<AddCvAnnouncementViewModel>();
+        Container.RegisterSingleton<TypeCvAllViewModel>();
+        Container.RegisterSingleton<CvSelectedViewModel>();
     }
 
     private void AddViews()
@@ -47,7 +52,11 @@ public partial class App : Application
         Container.RegisterSingleton<AddJopAnnouncement>();
         Container.RegisterSingleton<TypeAllView>();
         Container.RegisterSingleton<SelectedAnnouncementView>();
-        Container.RegisterSingleton<SearchViewModel>();
+        Container.RegisterSingleton<SearchView>();
+        Container.RegisterSingleton<AllCvView>();
+        Container.RegisterSingleton<AddCvAnnouncementView>();
+        Container.RegisterSingleton<CvTypeAllView>();
+        Container.RegisterSingleton<CvSelected>();
     }
 
     protected override void OnStartup(StartupEventArgs e)

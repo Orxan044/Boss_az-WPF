@@ -1,0 +1,25 @@
+[
+  {
+    "Name": "Orxan",
+    "Surname": "Huseynov",
+    "FatherName": "Samir",
+    "Gender": null,
+    "Age": 18,
+    "Image": "file:///C:/Users/user/Pictures/WIN_20240518_18_41_51_Pro.jpg",
+    "Education": 6,
+    "More": "Programist",
+    "WorkExperience": 1,
+    "SelectedCategory": { "\u0130nformasiya texnologiyalar\u0131": " Proqramla\u015Fd\u0131rma" },
+    "Position": "Programist",
+    "City": "Bak\u0131",
+    "SalaryMin": "1000",
+    "Skills": "Programist",
+    "Add_Information": "Programist",
+    "Mail": "orxantt044@gmail.com",
+    "PhoneNumber": "(050) 573-81-47",
+    "AnnouncementType": 0,
+    "FullName": "Orxan Huseynov",
+    "SalaryRange": "1000 AZN",
+    "Id": "0cab61e8-5361-42c0-a228-99c633965cd6"
+  }
+]

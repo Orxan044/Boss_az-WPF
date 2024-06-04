@@ -1,0 +1,155 @@
+﻿<Page x:Class="Boos.az_WPF.Views.AddCvAnnouncementView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Boos.az_WPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="1800" d:DesignWidth="1200"
+      Title="AddCvAnnouncementView">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" >
+        <Grid Background="#f4f4f4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="125*" />
+                <ColumnDefinition Width="400" />
+                <ColumnDefinition Width="132*"/>
+                <ColumnDefinition Width="125*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65" ></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <WrapPanel Grid.Row="0">
+                    <TextBlock Text="CV YERLƏŞDİRİN" FontWeight="Bold"
+                                       Padding="2" Margin="0 25 0 0" FontSize="20" 
+                                       Width="auto" ></TextBlock>
+                    <Button Background="#f8cb1c" BorderBrush="#f8cb1c"
+                            Content="İş elanı yerləşdirin"
+                            Width="150" Height="30"
+                            Margin="42 25 0 0"/>
+                </WrapPanel>
+                <Grid Background="White" Grid.Row="2" Height="1715" VerticalAlignment="Top" Margin="0,14,0,0" >
+                    <StackPanel>
+
+                        <WrapPanel >
+                            <TextBlock Text="Ad *" FontSize="18" 
+                                       Foreground="#6a6a77" Margin="25 10"/>
+                            <TextBlock Text="Soyad *" FontSize="18" 
+                                       Foreground="#6a6a77" Margin="55 10"/>
+                            <TextBlock Text="Ata Adı *" FontSize="18" 
+                                       Foreground="#6a6a77" Margin="15 10"/>
+                        </WrapPanel>
+                        <WrapPanel Height="40" >
+                            <TextBox Height="40" Width="100" FontSize="18" Margin="20 0"
+                                 Text="{Binding CvAnnouncement.Name}"></TextBox>
+                            <TextBox Height="40" Width="100" FontSize="18" Margin="0 0"
+                                 Text="{Binding CvAnnouncement.Surname}"></TextBox>
+                            <TextBox Height="40" Width="100" FontSize="18" Margin="25 0"
+                                 Text="{Binding CvAnnouncement.FatherName}"></TextBox>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <TextBlock Text="Cins *" FontSize="18" 
+                                       Foreground="#6a6a77" Margin="25 10"/>
+                            <TextBlock Text="Yaş" FontSize="18" 
+                                       Foreground="#6a6a77" Margin="95 10"/>
+                        </WrapPanel>
+                        <WrapPanel Height="40" >
+                            <ComboBox Height="40" Width="150" FontSize="18" Margin="20 0"
+                                      ItemsSource="{Binding Genders}"
+                                      SelectedItem="{Binding SelectedGender, Mode=TwoWay}"></ComboBox>
+                            
+                            <TextBox Height="40" Width="180" FontSize="18" Margin="0 0"
+                                 Text="{Binding CvAnnouncement.Age}"></TextBox>
+                        </WrapPanel>
+                        <TextBlock Text="Şəkil" FontSize="18" 
+                                       Foreground="#6a6a77" Margin="25 10"/>
+                        <WrapPanel>
+                            <Button BorderBrush="Gray" Background="Gray" Command="{Binding AddImageCommand}"
+                                    Content="Dosya Seç" Width="100" Margin="20 0 0 0" >
+                            </Button>
+                            <TextBlock Text="{Binding ImageSelected}" Margin="40 0 0 0">
+                                
+                            </TextBlock>
+                            
+                        </WrapPanel>
+                        <TextBlock Text="Təhsil" FontSize="18" 
+                                       Foreground="#6a6a77" Margin="25 20"/>
+                        <ComboBox Width="350" Margin="0 -10" FontSize="18"
+                                      ItemsSource="{Binding EducationOptions}"
+                                      SelectedItem="{Binding SelectedEducation, Mode=TwoWay}"></ComboBox>
+                        <TextBlock Text="Ətraflı" FontSize="18" 
+                                       Foreground="#6a6a77" Margin="25 20"/>
+                        <TextBox Width="350" Height="100" FontSize="18" Margin="0 -10" AcceptsReturn="True"
+                                 Text="{Binding CvAnnouncement.More}"/>
+                        <TextBlock Text="İş təcrübəsi" FontSize="18" 
+                                   Foreground="#6a6a77" Margin="25 20"/>
+                        <ComboBox Width="350" FontSize="18"
+                                      ItemsSource="{Binding WorkExperiences}"
+                                      SelectedItem="{Binding SelectedWorkExperience, Mode=TwoWay}"></ComboBox>
+                        <TextBlock Text="Kateqoriya *" FontSize="18" 
+                                   Foreground="#6a6a77" Margin="25 20"/>
+                        
+                        <ComboBox Height="40" Width="350" FontSize="18" Margin="-10"
+                                 ItemsSource="{Binding Categories}" 
+                                  DisplayMemberPath="Name"
+                                  SelectedItem="{Binding SelectedCategory}"/>
+
+                        <TextBlock Text="Kateqoriya Element *" FontSize="18"
+                                   Foreground="#6a6a77" Margin="25 30"/>
+
+                        <ComboBox Height="40" Width="350" FontSize="18" Margin="-10"
+                                  ItemsSource="{Binding Elements}" 
+                                  SelectedItem="{Binding SelectedElement}"
+                                  IsEnabled="{Binding SelectedCategory}"/>
+                        
+                        <TextBlock Text="Vəzifə *" FontSize="18" 
+                                   Foreground="#6a6a77" Margin="25 30"/>
+                        
+                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -15 0 0"
+                                 Text="{Binding CvAnnouncement.Position}"></TextBox>
+
+                        <TextBlock Text="Şəhər *" FontSize="18" 
+                                   Foreground="#6a6a77" Margin="25 30"/>
+                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -15 0 0"
+                                 Text="{Binding CvAnnouncement.City}"></TextBox>
+                        
+                        <TextBlock Text="Minimum əmək haqqı (AZN)" FontSize="18" 
+                                   Foreground="#6a6a77" Margin="25 20"/>
+                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -10 0 0"
+                                 Text="{Binding CvAnnouncement.SalaryMin}"></TextBox>
+
+                        <TextBlock Text="Bacarıqlar" FontSize="18" 
+                                       Foreground="#6a6a77" Margin="25 20"/>
+                        <TextBox Width="350" Height="100" FontSize="18" Margin="0 -10" AcceptsReturn="True"
+                                 Text="{Binding CvAnnouncement.Skills}"/>
+
+                        <TextBlock Text="Əlavə məlumat" FontSize="18" 
+                                       Foreground="#6a6a77" Margin="25 30"/>
+                        <TextBox Width="350" Height="100" FontSize="18" Margin="0 -10" AcceptsReturn="True"
+                                 Text="{Binding CvAnnouncement.Add_Information}"/>
+
+                        <TextBlock Text="E-mail" FontSize="18" 
+                                   Foreground="#6a6a77" Margin="25 30"/>
+                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -20 0 0"
+                                 Text="{Binding CvAnnouncement.Mail}"></TextBox>
+
+                        <TextBlock Text="Telefon" FontSize="18" 
+                                   Foreground="#6a6a77" Margin="25 30"/>
+                        <TextBox Height="40" Width="350" FontSize="18" Margin="0 -20 0 0"
+                                 Text="{Binding CvAnnouncement.PhoneNumber}"></TextBox>
+
+                        <Button Background="#f8cb1c" BorderBrush="#f8cb1c" 
+                                Content="Yerləşdirin" Width="100" Margin="20"
+                                Command="{Binding AddCvCommand}"/>
+                    </StackPanel>
+                </Grid>
+
+
+
+
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>
