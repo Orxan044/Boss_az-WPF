@@ -42,6 +42,8 @@ public partial class App : Application
         Container.RegisterSingleton<AddCvAnnouncementViewModel>();
         Container.RegisterSingleton<TypeCvAllViewModel>();
         Container.RegisterSingleton<CvSelectedViewModel>();
+        Container.RegisterSingleton<PremiumAnnouncementViewModel>();
+        Container.RegisterSingleton<ReklamViewModel>();
     }
 
     private void AddViews()
@@ -57,6 +59,8 @@ public partial class App : Application
         Container.RegisterSingleton<AddCvAnnouncementView>();
         Container.RegisterSingleton<CvTypeAllView>();
         Container.RegisterSingleton<CvSelected>();
+        Container.RegisterSingleton<PremiumAnnouncementView>();
+        Container.RegisterSingleton<ReklamView>();
     }
 
     protected override void OnStartup(StartupEventArgs e)

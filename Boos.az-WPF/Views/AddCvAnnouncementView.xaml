@@ -10,10 +10,10 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto" >
         <Grid Background="#f4f4f4">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="125*" />
+                <ColumnDefinition Width="131*" />
                 <ColumnDefinition Width="400" />
-                <ColumnDefinition Width="132*"/>
-                <ColumnDefinition Width="125*"/>
+                <ColumnDefinition Width="175*"/>
+                <ColumnDefinition Width="94*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1" >
                 <Grid.RowDefinitions>
@@ -27,7 +27,7 @@
                                        Width="auto" ></TextBlock>
                     <Button Background="#f8cb1c" BorderBrush="#f8cb1c"
                             Content="İş elanı yerləşdirin"
-                            Width="150" Height="30"
+                            Width="150" Height="30" Command="{Binding GetJopAnnouncementCommand}"
                             Margin="42 25 0 0"/>
                 </WrapPanel>
                 <Grid Background="White" Grid.Row="2" Height="1715" VerticalAlignment="Top" Margin="0,14,0,0" >
@@ -59,7 +59,7 @@
                             <ComboBox Height="40" Width="150" FontSize="18" Margin="20 0"
                                       ItemsSource="{Binding Genders}"
                                       SelectedItem="{Binding SelectedGender, Mode=TwoWay}"></ComboBox>
-                            
+
                             <TextBox Height="40" Width="180" FontSize="18" Margin="0 0"
                                  Text="{Binding CvAnnouncement.Age}"></TextBox>
                         </WrapPanel>
@@ -70,9 +70,9 @@
                                     Content="Dosya Seç" Width="100" Margin="20 0 0 0" >
                             </Button>
                             <TextBlock Text="{Binding ImageSelected}" Margin="40 0 0 0">
-                                
+
                             </TextBlock>
-                            
+
                         </WrapPanel>
                         <TextBlock Text="Təhsil" FontSize="18" 
                                        Foreground="#6a6a77" Margin="25 20"/>
@@ -90,7 +90,7 @@
                                       SelectedItem="{Binding SelectedWorkExperience, Mode=TwoWay}"></ComboBox>
                         <TextBlock Text="Kateqoriya *" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 20"/>
-                        
+
                         <ComboBox Height="40" Width="350" FontSize="18" Margin="-10"
                                  ItemsSource="{Binding Categories}" 
                                   DisplayMemberPath="Name"
@@ -103,10 +103,10 @@
                                   ItemsSource="{Binding Elements}" 
                                   SelectedItem="{Binding SelectedElement}"
                                   IsEnabled="{Binding SelectedCategory}"/>
-                        
+
                         <TextBlock Text="Vəzifə *" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 30"/>
-                        
+
                         <TextBox Height="40" Width="350" FontSize="18" Margin="0 -15 0 0"
                                  Text="{Binding CvAnnouncement.Position}"></TextBox>
 
@@ -114,7 +114,7 @@
                                    Foreground="#6a6a77" Margin="25 30"/>
                         <TextBox Height="40" Width="350" FontSize="18" Margin="0 -15 0 0"
                                  Text="{Binding CvAnnouncement.City}"></TextBox>
-                        
+
                         <TextBlock Text="Minimum əmək haqqı (AZN)" FontSize="18" 
                                    Foreground="#6a6a77" Margin="25 20"/>
                         <TextBox Height="40" Width="350" FontSize="18" Margin="0 -10 0 0"
@@ -148,8 +148,12 @@
 
 
 
-
             </Grid>
+            <TextBlock FontFamily="Tahoma" FontWeight="Bold" Grid.Column="2" Margin="40,20,20,1730" FontSize="28"  Text="QAYDALAR" ></TextBlock>
+            <TextBox IsReadOnly="True" TextWrapping="Wrap"
+                     FontSize="15" Grid.Column="2" Text="{Binding CvRule}"
+                     Margin="40 80 0 0"
+            ></TextBox>
         </Grid>
     </ScrollViewer>
 </Page>

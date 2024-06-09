@@ -1,6 +1,4 @@
-﻿using Boos.az_WPF.Data;
-using Boos.az_WPF.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,20 +16,13 @@ using System.Windows.Shapes;
 namespace Boos.az_WPF.Views
 {
     /// <summary>
-    /// Interaction logic for CategoryView.xaml
+    /// Interaction logic for PremiumAnnouncementView.xaml
     /// </summary>
-    public partial class CategoryView : Page
+    public partial class PremiumAnnouncementView : Page
     {
-        public CategoryView()
+        public PremiumAnnouncementView()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var keyword = (e.Source as Button)!.Content.ToString();
-            CategoryViewModel.SelectedCategory2 = keyword;
-
         }
     }
 }

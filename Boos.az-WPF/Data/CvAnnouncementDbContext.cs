@@ -8,8 +8,9 @@ namespace Boos.az_WPF.Data;
 
 public class CvAnnouncementDbContext
 {
-    public ObservableCollection<CvAnnouncement>? CvAnnouncements { get; set; }
-    public ObservableCollection<CvAnnouncement>? CvAnnouncementsPerimum { get; set; }
+    public ObservableCollection<CvAnnouncement>? CvAnnouncements { get; set; } = new();
+    public ObservableCollection<CvAnnouncement>? CvAnnouncementsCheck { get; set; }
+    public ObservableCollection<CvAnnouncement>? CvAnnouncementsPerimum { get; set; } = new();
     public ObservableCollection<CvAnnouncement>? CvAnnouncementsSearch { get; set; } = new();
 
     private string? fileName = "C:\\Users\\user\\source\\Repos\\Boss.az\\Boos.az-WPF\\JSON\\CvAnnouncement.json";
@@ -19,14 +20,24 @@ public class CvAnnouncementDbContext
         if (File.Exists(fileName))
         {
             var CvAnnouncementsJson = File.ReadAllText(fileName);
-            CvAnnouncements = JsonSerializer.Deserialize<ObservableCollection<CvAnnouncement>>(CvAnnouncementsJson) ?? new();
+            CvAnnouncementsCheck = JsonSerializer.Deserialize<ObservableCollection<CvAnnouncement>>(CvAnnouncementsJson) ?? new();
+            foreach (var item in CvAnnouncementsCheck)
+            {
+                if (item.AnnouncementType == AnnouncementType.New) CvAnnouncements.Add(item);
+                else CvAnnouncementsPerimum.Add(item);
+            }
         }
         else
             CvAnnouncements = new();
     }
 
-    public CvAnnouncement? GetJopAnnouncement(string CvAnnouncementId) =>
-        CvAnnouncements!.FirstOrDefault(p => p.Id.ToString() == CvAnnouncementId);
+    public CvAnnouncement? GetCvAnnouncement(string CvAnnouncementId)
+    {
+        CvAnnouncement New = CvAnnouncements!.FirstOrDefault(p => p.Id.ToString() == CvAnnouncementId)!;
+        CvAnnouncement Perium = CvAnnouncementsPerimum!.FirstOrDefault(p => p.Id.ToString() == CvAnnouncementId)!;
+        if (New is not null) return New;
+        else return Perium;
+    }
 
 
     public void SaveChanges()

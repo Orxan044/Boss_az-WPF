@@ -50,7 +50,7 @@
 
                             <DataTemplate>
                                 <Border BorderBrush="White" Background="White" Margin="5" Width="315" Height="315">
-                                    <Grid Margin="10">
+                                    <Grid Margin="10">  
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="40*"></RowDefinition>
                                             <RowDefinition Height="19*"></RowDefinition>

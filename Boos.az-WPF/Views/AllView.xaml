@@ -106,7 +106,7 @@
                         <TextBlock Text="PREMİUM İŞ ELANLARI"
                                    Padding="10" FontSize="25" 
                                    Width="auto" ></TextBlock>
-                        <Button Padding="20 5 5 0" FontSize="15" Content="Hamısını göstərmək" Foreground="#a3a6ad" Background="Transparent" BorderBrush="Transparent" />
+                        <Button Padding="20 5 5 0" FontSize="15" Content="Hamısını göstərmək" Foreground="#a3a6ad" Background="Transparent" BorderBrush="Transparent" Command="{Binding NewAllSeePremiumCommand}"/>
                     </WrapPanel>
                 </Grid>
 
@@ -137,7 +137,9 @@
                                         <Grid>
                                             <Button  Content="{Binding Position}"  Background="Transparent" BorderBrush="Transparent" 
                                                 VerticalAlignment="Top" FontSize="18" FontStyle="Normal"  FontWeight="Bold" Width="auto"
-                                                     Padding="0 55 0 0" Margin="0 0 0 0" 
+                                                Padding="0 0 55 0" Margin="0 0 0 0" 
+                                                Command="{Binding DataContext.GetAnnouncementCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                                CommandParameter="{Binding}"
                                             />
                                             <Button Height="25" BorderBrush="#f8cb1c"  Content="{Binding SalaryRange}"
                                                        FontSize="14" Width="120" 
@@ -148,7 +150,7 @@
                                             <Button Content="{Binding CompanyName}" VerticalAlignment="Top"
                                                 Background="Transparent" BorderBrush="Transparent"
                                                 FontSize="14" Foreground="Gray" 
-                                                Margin="0,58,0,0" Padding="0 0 100 0" Height="22"
+                                                Margin="0,58,0,0" Padding="0 0 80 0" Height="22" Width="auto"
                                             
                                             />
                                         </Grid>

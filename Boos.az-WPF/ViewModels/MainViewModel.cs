@@ -1,14 +1,7 @@
 ﻿using Boos.az_WPF.Command;
-using Boos.az_WPF.Data;
-using Boos.az_WPF.Models;
 using Boos.az_WPF.Views;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
 using UserPanel.Services.Navigation;
@@ -25,7 +18,8 @@ public class MainViewModel : ViewModel , INotifyPropertyChanged
     public RelayCommand CvAnnouncementCommand { get; set; }
     #endregion
 
-    public static bool Check { get; set; }
+
+    #region ButtonBackground
 
     private Brush _buttonBackgroundJop;
     public Brush ButtonBackgroundJop
@@ -48,7 +42,10 @@ public class MainViewModel : ViewModel , INotifyPropertyChanged
             OnPropertyChanged();
         }
     }
+    #endregion
 
+
+    #region Page's
     private Page currentPage;
     private Page currentPage2;
 
@@ -64,6 +61,10 @@ public class MainViewModel : ViewModel , INotifyPropertyChanged
         set { currentPage2 = value!; OnPropertyChanged(); }
     }
 
+    #endregion
+
+
+    public static bool Check { get; set; }
     public AllViewModel AllViewModel { get; set; }
     private readonly INavigationService navigationService;
 
@@ -73,6 +74,7 @@ public class MainViewModel : ViewModel , INotifyPropertyChanged
         JopAnnouncementCommand = new RelayCommand(JopAnnouncementClick);
         AddAnnouncementCommand = new RelayCommand(AddAnnouncementClick);
         CvAnnouncementCommand = new RelayCommand(CvAnnouncementClick);
+
         ButtonBackgroundJop = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f9d54b"));
         ButtonBackgroundCv = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00FFFFFF"));
 
@@ -109,13 +111,18 @@ public class MainViewModel : ViewModel , INotifyPropertyChanged
     }
     public void AddAnnouncementClick(object? obj)
     {
-        navigationService.Navigate<AddJopAnnouncement,AddJopAnnouncementModel>(CurrentPage2!);  
+        if(Check == false)  
+            navigationService.Navigate<AddJopAnnouncement,AddJopAnnouncementModel>(CurrentPage2!);         
+        else      
+            navigationService.Navigate<AddCvAnnouncementView,AddCvAnnouncementViewModel>(CurrentPage2!);     
     }
 
     private void BossAzClick(object? obj)
     {
         navigationService.Navigate<CategoryView,CategoryViewModel>(CurrentPage!);
         navigationService.Navigate<AllView,AllViewModel>(CurrentPage2!);
+        ButtonBackgroundJop = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f9d54b"));
+        ButtonBackgroundCv = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00FFFFFF"));
     }
 
 
@@ -125,4 +132,5 @@ public class MainViewModel : ViewModel , INotifyPropertyChanged
     protected void OnPropertyChanged([CallerMemberName] string? paramName = null)
         => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(paramName));
     //-------------------------------------------------------------
+
 }

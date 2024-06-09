@@ -7,16 +7,6 @@ namespace Boos.az_WPF.Data;
 
 public class CategoryDbContext
 {
-    //static public List<string> strings = new()
-    //{
-    //    "Kredit Mütəxəssisi" , "Sigorta" , "Audit" , "Mühasibat" ,"Maliyyə analiz","Kassir","Digər"
-    //};
-
-    //static public List<string> strings2 = new()
-    //{
-    //    "Sistem idarəetməsi" , "Məlumat bazasının idarə edilməsi və inkişafı" , " İT mütəxəssisi / məsləhətçi" , " Proqramlaşdırma" , "Digər"
-    //};
-
     public ObservableCollection<Category>? Categories { get; set; }
 
     private string? fileName = "C:\\Users\\user\\source\\Repos\\Boss.az\\Boos.az-WPF\\JSON\\Category.json";

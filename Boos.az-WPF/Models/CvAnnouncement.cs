@@ -7,7 +7,7 @@ public class CvAnnouncement : Entity
     public string? Name { get; set; }
     public string? Surname { get; set; }
     public string? FatherName { get; set; }
-    public List<string>? Gender { get; set; }
+    public string? Gender { get; set; }
     public int? Age { get; set; }
     public string? Image {get; set; }
     public Education? Education {get; set; }

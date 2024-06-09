@@ -3,6 +3,7 @@ using Boos.az_WPF.Data;
 using Boos.az_WPF.Models;
 using Boos.az_WPF.Views;
 using System.Collections.ObjectModel;
+using System.Data.Common;
 using System.Reflection.Metadata;
 using UserPanel.Services.Navigation;
 
@@ -12,18 +13,18 @@ public class CategoryViewModel : ViewModel
 {
     public CategoryDbContext CategoryDbContext { get; set; }
     public JopAnnouncementDbContext JopDbContext { get; set; }
+    public CvAnnouncementDbContext CvDbContext { get; set; }
 
     public RelayCommand SearchCommand { get; set; }
     public RelayCommand CategoryCommand { get; set; }
 
     private readonly INavigationService NavigationService;
-    public CategoryViewModel(CategoryDbContext categoryDbContext, INavigationService navigationService , JopAnnouncementDbContext jopDbContext)
+    public static string? SelectedCategory2 { get; set; }
+    public CategoryViewModel(CategoryDbContext categoryDbContext, INavigationService navigationService , JopAnnouncementDbContext jopDbContext,CvAnnouncementDbContext cvDbContext)
     {
         CategoryDbContext = categoryDbContext;
         JopDbContext = jopDbContext;
-        //Category category = new Category { Name = "İnformasiya texnologiyaları", Elements = CategoryDbContext.strings2, Count = 0 };
-        //CategoryDbContext.Categories!.Add(category);
-        //CategoryDbContext.SaveChanges();
+        CvDbContext = cvDbContext;
         SearchCommand = new RelayCommand(SearchClick);
         CategoryCommand = new RelayCommand(CategoryClick);
         NavigationService = navigationService;
@@ -31,21 +32,35 @@ public class CategoryViewModel : ViewModel
 
     private void CategoryClick(object? obj)
     {
-        string SelectedCategory = (obj as string)!;
-        var query = JopDbContext.JopAnnouncements!.AsQueryable();
-        if (SelectedCategory is not null)
-            query = query.Where(j => j.SelectedCategory!.ContainsKey(SelectedCategory));
-
-        MainViewModel mainView = new(NavigationService);
-        var returnList = new ObservableCollection<JopAnnouncement>(query.ToList());
-        if (returnList is not null)
+        
+        MainViewModel mainViewModel = new(NavigationService);
+        JopDbContext.JopAnnouncementsSearch!.Clear();
+        foreach (var item in CategoryDbContext.Categories!)
         {
-            JopDbContext.JopAnnouncementsSearch!.Clear();
-            foreach (var item in returnList)
-                JopDbContext.JopAnnouncementsSearch!.Add(item);
+            if (item.Name == SelectedCategory2)
+            {
+                if (MainViewModel.Check == false)
+                {
+                    foreach (var item2 in JopDbContext.JopAnnouncements!)
+                    {
+                        if (item2.SelectedCategory!.ContainsKey(item.Name!))
+                            JopDbContext.JopAnnouncementsSearch!.Add(item2);
 
+                    }
+                    NavigationService.Navigate<TypeAllView, TypeAllViewModel>(mainViewModel.CurrentPage2!);
+                }
+                if (MainViewModel.Check)
+                {
+                    foreach (var item2 in CvDbContext.CvAnnouncements!)
+                    {
+                        if (item2.SelectedCategory!.ContainsKey(item.Name!))
+                            CvDbContext.CvAnnouncementsSearch!.Add(item2);
+
+                    }
+                    NavigationService.Navigate<CvTypeAllView, TypeCvAllViewModel>(mainViewModel.CurrentPage2!);
+                }
+            }
         }
-        NavigationService.Navigate<TypeAllView, TypeAllViewModel>(mainView.CurrentPage2!);
     }
 
     private void SearchClick(object? obj)

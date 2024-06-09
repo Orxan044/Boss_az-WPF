@@ -1,1 +1,62 @@
-[{"Name":"Maliyy\u0259","Elements":["Kredit M\u00FCt\u0259x\u0259ssisi","Sigorta","Audit","M\u00FChasibat","Maliyy\u0259 analiz","Kassir","Dig\u0259r"],"Count":0},{"Name":"Marketinq","Elements":["Marketinq menecment","\u0130ctimay\u0259tl\u0259 \u0259laq\u0259l\u0259r","Reklam","Kopiraytinq"],"Count":0},{"Name":"\u0130nformasiya texnologiyalar\u0131","Elements":["Sistem idar\u0259etm\u0259si","M\u0259lumat bazas\u0131n\u0131n idar\u0259 edilm\u0259si v\u0259 inki\u015Faf\u0131"," \u0130T m\u00FCt\u0259x\u0259ssisi / m\u0259sl\u0259h\u0259t\u00E7i"," Proqramla\u015Fd\u0131rma","Dig\u0259r"],"Count":0}]
+[
+  {
+    "Name": "Maliyy\u0259",
+    "Elements": [ "Kredit M\u00FCt\u0259x\u0259ssisi", "Sigorta", "Audit", "M\u00FChasibat", "Maliyy\u0259 analiz", "Kassir", "Dig\u0259r" ],
+    "Count": 0
+  },
+  {
+    "Name": "Marketinq",
+    "Elements": [ "Marketinq menecment", "\u0130ctimay\u0259tl\u0259 \u0259laq\u0259l\u0259r", "Reklam", "Kopiraytinq" ],
+    "Count": 0
+  },
+  {
+    "Name": "\u0130nformasiya texnologiyalar\u0131",
+    "Elements": [ "Sistem idar\u0259etm\u0259si", "M\u0259lumat bazas\u0131n\u0131n idar\u0259 edilm\u0259si v\u0259 inki\u015Faf\u0131", " \u0130T m\u00FCt\u0259x\u0259ssisi / m\u0259sl\u0259h\u0259t\u00E7i", " Proqramla\u015Fd\u0131rma", "Dig\u0259r" ],
+    "Count": 0
+  },
+  {
+    "Name": "\u0130nzibati",
+    "Elements": [ "\u0130nzibati d\u0259st\u0259k", "Menecment", " Ofis menecmenti" ],
+    "Count": 0
+  },
+  {
+    "Name": "Sat\u0131\u015F",
+    "Elements": [ "Da\u015F\u0131nmaz \u0259mlak agenti / makler", "Sat\u0131\u015F \u00FCzr\u0259 m\u00FCt\u0259x\u0259ssis" ],
+    "Count": 0
+  },
+  {
+    "Name": "Dizayn",
+    "Elements": [ "Veb-Dizayn", "Memar", "R\u0259ssam", "Dig\u0259r" ],
+    "Count": 0
+  },
+  {
+    "Name": "T\u0259hsil v\u0259 elm",
+    "Elements": [ "M\u0259kt\u0259b t\u0259drisi", "Universitet t\u0259drisi", "Repetitor", "X\u00FCsusi t\u0259hsil/ T\u0259lim", "Dig\u0259r" ],
+    "Count": 0
+  },
+  {
+    "Name": "H\u00FCquq\u015F\u00FCnasl\u0131q",
+    "Elements": [ "V\u0259kil", "Cinay\u0259t h\u00FCququ", "H\u00FCquq\u015F\u00FCnas", "Dig\u0259r" ],
+    "Count": 0
+  },
+  {
+    "Name": "S\u0259naye v\u0259 k\u0259nd t\u0259s\u0259rr\u00FCfat\u0131",
+    "Elements": [ "Avtomatla\u015Fd\u0131r\u0131lm\u0131\u015F idar\u0259etm\u0259", "Tikinti", "K\u0259nd t\u0259s\u0259rr\u00FCfat\u0131", "M\u00FCh\u0259ndis" ],
+    "Count": 0
+  },
+  {
+    "Name": "Xidm\u0259t",
+    "Elements": [ "Kuryer", "Xadim\u0259", "Anbardar", "Restoran i\u015Fi" ],
+    "Count": 0
+  },
+  {
+    "Name": "Tibb v\u0259 \u0259cza\u00E7\u0131l\u0131q",
+    "Elements": [ "H\u0259kim", "Tibbi personal", "Tibb t\u0259msil\u00E7isi", "M\u00FCxt\u0259lif" ],
+    "Count": 0
+  },
+  {
+    "Name": "M\u00FCxt\u0259lif",
+    "Elements": [ "Jurnalistika", "T\u0259l\u0259b\u0259l\u0259r \u00FC\u00E7\u00FCn" ],
+    "Count": 0
+  }
+]

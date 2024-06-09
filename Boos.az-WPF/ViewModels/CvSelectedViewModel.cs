@@ -9,8 +9,8 @@ public class CvSelectedViewModel : ViewModel , INotifyPropertyChanged
     public double WindowSize { get; set; }
     public double GridSize { get; set; }
 
-    private CvAnnouncement selectedAnnouncement;
-    public CvAnnouncement SelectedAnnouncement { get => selectedAnnouncement; set { selectedAnnouncement = value; OnPropertyChanged(); } }
+    private CvAnnouncement? selectedAnnouncement;
+    public CvAnnouncement SelectedAnnouncement { get => selectedAnnouncement!; set { selectedAnnouncement = value; OnPropertyChanged(); } }
 
     public TypeCvAllViewModel TypeCvAllViewModel { get; set; }
 
