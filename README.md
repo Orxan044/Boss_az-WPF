@@ -1,2 +1,1 @@
-Double Clik Tapa bilmedin . Etrafli duymesini add edersen
-
+(https://boss.az/) Sayitina Oxsadamaq Istemisem
