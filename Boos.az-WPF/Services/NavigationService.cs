@@ -11,7 +11,7 @@ public class NavigationService : INavigationService
     {
         var mainVm = App.Current.MainWindow.DataContext as MainViewModel;
         if (App.Current.MainWindow.DataContext as MainViewModel is not null)
-        {
+        { 
             if (CurrentPageSelect == mainVm!.CurrentPage)
             {
                 mainVm!.CurrentPage = App.Container.GetInstance<TView>();
